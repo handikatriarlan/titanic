@@ -1,12 +1,14 @@
 from django.shortcuts import render
 import pandas as pd
 import joblib
+import os
 from .forms import PredictionForm
 
 
 # Load model
-model = joblib.load("C:/Users/User/Documents/Rayhan/AI/titanic/titanic/predictions/titanic_model.joblib")
-
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+MODEL_PATH = os.path.join(BASE_DIR, 'titanic', 'predictions', 'titanic_model.joblib')
+model = joblib.load(MODEL_PATH)
 
 def preprocess_data(data):
     # Mengonversi gender menjadi angka (0: male, 1: female)
