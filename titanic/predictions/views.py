@@ -52,7 +52,7 @@ def predict_survival(request):
                 prediction = model.predict(processed_data)
                 
                 # Menampilkan hasil prediksi
-                prediction_result = "Alhamdulillah Selamat Coyy 😁" if prediction[0] == 1 else "Hello World!😂"
+                prediction_result = "Penumpang Selamat" if prediction[0] == 1 else "Penumpang Tidak Selamat"
             except Exception as e:
                 prediction_result = f"An error occurred: {str(e)}"
             
